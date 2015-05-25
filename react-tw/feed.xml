@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>React</title>
+		<description>A JavaScript library for building user interfaces</description>
+		<link>https://facebook.github.io/react</link>
+		<atom:link href="https://facebook.github.io/react/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>React Native Release Process</title>
+				<description>&lt;p&gt;The React Native release process have been a bit chaotic since we open sourced. It was unclear when new code was released, there was no changelog, we bumped the minor and patch version inconsistently and we often had to submit updates right after a release to fix a bad bug. In order to &lt;em&gt;move fast with stable infra&lt;/em&gt;, we are introducing a real release process with a two-week release schedule.&lt;/p&gt;
+
+&lt;p&gt;To explain how it works, let me walk you through an example. Today, Friday, we took the current state of master and put it on the 0.5-stable branch. We &lt;a href=&quot;https://github.com/facebook/react-native/releases/tag/v0.5.0-rc&quot;&gt;published 0.5.0-rc&lt;/a&gt;, an RC (Release Candidate) when we cut the branch. For two weeks, we&amp;#39;re going to let it stabilize and only cherry-pick critical bug fixes from master.&lt;/p&gt;
+
+&lt;p&gt;Friday in two weeks, we&amp;#39;re going to publish the 0.5.0 release, create the 0.6-stable branch and publish 0.6.0-rc as well.&lt;/p&gt;
+
+&lt;p&gt;The release process is synchronized with Facebook&amp;#39;s mobile release process. This means that everything in the open source release is also being shipped as part of all the Facebook apps that use React Native!&lt;/p&gt;
+
+&lt;p&gt;You now have three ways to get React Native. You should chose the one you want based on the amount of risk you tolerate:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;master&lt;/strong&gt;: You have updates as soon as they are committed. This is if you want to live on the bleeding edge or want to submit pull requests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rc&lt;/strong&gt;: If you don&amp;#39;t want to update every day and deal with many instabilities but want to have recent updates, this is your best shot.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;release&lt;/strong&gt;: This is the most stable version we offer. The trade-off is that it contains commits that are up to a month old.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you want more details, I highly recommend this video that explains how Facebook mobile release process works and why it was setup this way.&lt;/p&gt;
+
+&lt;iframe width=&quot;650&quot; height=&quot;300&quot; src=&quot;https://www.youtube.com/embed/mOyoTUETmSM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+				<pubDate>2015-05-22T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/05/22/react-native-release-process.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/05/22/react-native-release-process.html</guid>
+			</item>
+		
+			<item>
+				<title>React v0.13.3</title>
+				<description>&lt;p&gt;Today we&amp;#39;re sharing another patch release in the v0.13 branch. There are only a few small changes, with a couple to address some issues that arose around that undocumented feature so many of you are already using: &lt;code&gt;context&lt;/code&gt;. We also improved developer ergonomics just a little bit, making some warnings better.&lt;/p&gt;
+
+&lt;p&gt;The release is now available for download:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-0.13.3.js&quot;&gt;https://fb.me/react-0.13.3.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-0.13.3.min.js&quot;&gt;https://fb.me/react-0.13.3.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React with Add-Ons&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.3.js&quot;&gt;https://fb.me/react-with-addons-0.13.3.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.3.min.js&quot;&gt;https://fb.me/react-with-addons-0.13.3.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In-Browser JSX transformer&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&quot;https://fb.me/JSXTransformer-0.13.3.js&quot;&gt;https://fb.me/JSXTransformer-0.13.3.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We&amp;#39;ve also published version &lt;code&gt;0.13.3&lt;/code&gt; of the &lt;code&gt;react&lt;/code&gt; and &lt;code&gt;react-tools&lt;/code&gt; packages on npm and the &lt;code&gt;react&lt;/code&gt; package on bower.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;changelog&quot;&gt;&lt;/a&gt;Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-core&quot;&gt;&lt;/a&gt;React Core &lt;a class=&quot;hash-link&quot; href=&quot;#react-core&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;new-features&quot;&gt;&lt;/a&gt;New Features &lt;a class=&quot;hash-link&quot; href=&quot;#new-features&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;code&gt;clipPath&lt;/code&gt; element and attribute for SVG&lt;/li&gt;
+&lt;li&gt;Improved warnings for deprecated methods in plain JS classes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Loosened &lt;code&gt;dangerouslySetInnerHTML&lt;/code&gt; restrictions so &lt;code&gt;{__html: undefined}&lt;/code&gt; will no longer throw&lt;/li&gt;
+&lt;li&gt;Fixed extraneous context warning with non-pure &lt;code&gt;getChildContext&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ensure &lt;code&gt;replaceState(obj)&lt;/code&gt; retains prototype of &lt;code&gt;obj&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-with-add-ons&quot;&gt;&lt;/a&gt;React with Add-ons &lt;a class=&quot;hash-link&quot; href=&quot;#react-with-add-ons&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Test Utils: Ensure that shallow rendering works when components define &lt;code&gt;contextTypes&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>2015-05-08T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/05/08/react-v0.13.3.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/05/08/react-v0.13.3.html</guid>
+			</item>
+		
+			<item>
+				<title>GraphQL Introduction</title>
+				<description>&lt;p&gt;At the React.js conference in late January 2015, we revealed our next major technology in the React family: &lt;a href=&quot;http://facebook.github.io/react/blog/2015/02/20/introducing-relay-and-graphql.html&quot;&gt;Relay&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Relay is a new way of structuring client applications that co-locates data-fetching requirements and React components. Instead of placing data fetching logic in some other part of the client application – or embedding this logic in a custom endpoint on the server – we instead co-locate a &lt;em&gt;declarative&lt;/em&gt; data-fetching specification alongside the React component. The language of this declarative specification is GraphQL.&lt;/p&gt;
+
+&lt;p&gt;GraphQL was not invented to enable Relay. In fact, GraphQL predates Relay by nearly three years. It was invented during the move from Facebook&amp;#39;s HTML5-driven mobile applications to purely native applications. It is a query language for graph data that powers the lion&amp;#39;s share of interactions in the Facebook Android and iOS applications. Any user of the native iOS or Android app in the last two years has used an app powered by GraphQL.&lt;/p&gt;
+
+&lt;p&gt;We plan to open-source a reference implementation of a GraphQL server and publish a language specification in the coming months. Our goal is to evolve GraphQL to adapt to a wide range of backends, so that projects and companies can use this technology to access their own data. We believe that this is a compelling way to structure servers and to provide powerful abstractions, frameworks and tools – including, but not exclusively, Relay – for product developers.&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;what-is-graphql&quot;&gt;&lt;/a&gt;What is GraphQL? &lt;a class=&quot;hash-link&quot; href=&quot;#what-is-graphql&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A GraphQL query is a string interpreted by a server that returns data in a specified format. Here is an example query: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3500401&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;isViewerFriend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;profilePicture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;(Note: this syntax is slightly different from previous GraphQL examples. We&amp;#39;ve recently been making improvements to the language.)&lt;/p&gt;
+
+&lt;p&gt;And here is the response to that query.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3500401&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Jing Chen&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;isViewerFriend&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;profilePicture&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;uri&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://someurl.cdn/pic.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We will dig into the syntax and semantics of GraphQL in a later post, but even a simple example shows many of its design principles:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hierarchical:&lt;/strong&gt; Most product development today involves the creation and manipulation of view hierarchies. To achieve congruence with the structure of these applications, a GraphQL query itself is a hierarchical set of fields. The query is shaped just like the data it returns. It is a natural way for product engineers to describe data requirements.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Product-centric:&lt;/strong&gt; GraphQL is unapologetically driven by the requirements of views and the front-end engineers that write them. We start with their way of thinking and requirements and build the language and runtime necessary to enable that.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client-specified queries:&lt;/strong&gt; In GraphQL, the specification for queries are encoded in the &lt;em&gt;client&lt;/em&gt; rather than the &lt;em&gt;server&lt;/em&gt;. These queries are specified at field-level granularity. In the vast majority of applications written without GraphQL, the server determines the data returned in its various scripted endpoints. A GraphQL query, on the other hand, returns exactly what a client asks for and no more.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backwards Compatible:&lt;/strong&gt; In a world of deployed native mobile applications with no forced upgrades, backwards compatibility is a challenge. Facebook, for example, releases apps on a two week fixed cycle and pledges to maintain those apps for &lt;em&gt;at least&lt;/em&gt; two years. This means there are at a &lt;em&gt;minimum&lt;/em&gt; 52 versions of our clients per platform querying our servers at any given time. Client-specified queries simplifies managing our backwards compatibility guarantees.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Structured, Arbitrary Code:&lt;/strong&gt; Query languages with field-level granularity have typically queried storage engines directly, such as SQL. GraphQL instead imposes a structure onto a server, and exposes fields that are backed by &lt;em&gt;arbitrary code&lt;/em&gt;. This allows for both server-side flexibility and a uniform, powerful API across the entire surface area of an application.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application-Layer Protocol:&lt;/strong&gt; GraphQL is an application-layer protocol and does not require a particular transport. It is a string that is parsed and interpreted by a server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strongly-typed:&lt;/strong&gt; GraphQL is strongly-typed. Given a query, tooling can ensure that the query is both syntactically correct and valid within the GraphQL type system before execution, i.e. at development time, and the server can make certain guarantees about the shape and nature of the response. This makes it easier to build high quality client tools.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Introspective:&lt;/strong&gt; GraphQL is introspective. Clients and tools can query the type system using the GraphQL syntax itself. This is a powerful platform for building tools and client software, such as automatic parsing of incoming data into strongly-typed interfaces. It is especially useful in statically typed languages such as Swift, Objective-C and Java, as it obviates the need for repetitive and error-prone code to shuffle raw, untyped JSON into strongly-typed business objects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;why-invent-something-new&quot;&gt;&lt;/a&gt;Why invent something new? &lt;a class=&quot;hash-link&quot; href=&quot;#why-invent-something-new&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Obviously GraphQL is not the first system to manage client-server interactions. In today&amp;#39;s world there are two dominant architectural styles for client-server interaction: REST and &lt;em&gt;ad hoc&lt;/em&gt; endpoints. &lt;/p&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;rest&quot;&gt;&lt;/a&gt;REST &lt;a class=&quot;hash-link&quot; href=&quot;#rest&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;REST an acronym for Representational State Transfer, which is an architectural style rather than a formal protocol. There is actually much debate about what exactly REST is and is not. We wish to avoid such debates. We are interested in the typical attributes of systems that &lt;em&gt;self-identify&lt;/em&gt; as REST, rather than systems which are formally REST.&lt;/p&gt;
+
+&lt;p&gt;Objects in a typical REST system are addressable by URI and interacted with using verbs in the HTTP protocol. An HTTP GET to a particular URI fetches and object and returns a server-specified set of fields. An HTTP PUT edits an object; an HTTP DELETE deletes an object; and so on.&lt;/p&gt;
+
+&lt;p&gt;We believe there are a number of weakness in typical REST systems, ones that are particularly problematic in mobile applications:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fetching complicated object graphs require multiple round trips between the client and server to render single views. For mobile applications operating in variable network conditions, these multiple roundtrips are highly undesirable.&lt;/li&gt;
+&lt;li&gt;Invariably fields and additional data are added to REST endpoints as the system requirements change. However, old clients also receive this additional data as well, because the data fetching specification is encoded on the server rather than the client. As result, these payloads tend to grow over time for all clients. When this becomes a problem for a system, one solution is to overlay a versioning system onto the REST endpoints. Versioning also complicates a server, and results in code duplication, spaghetti code, or a sophisticated, hand-rolled infrastructure to manage it. Another solution to limit over-fetching is to provide multiple views – such as “compact” vs “full” – of the same REST endpoint, however this coarse granularity often does not offer adequate flexibility.&lt;/li&gt;
+&lt;li&gt;REST endpoints are usually weakly-typed and lack machine-readable metadata. While there is much debate about the merits of strong- versus weak-typing in distributed systems, we believe in strong typing because of the correctness guarantees and tooling opportunities it provides. Developer deal with systems that lack this metadata by inspecting frequently out-of-date documentation and then writing code against the documentation.&lt;/li&gt;
+&lt;li&gt;Many of these attributes are linked to the fact that “REST is intended for long-lived network-based applications that span multiple organizations” &lt;a href=&quot;http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven&quot;&gt;according to its inventor&lt;/a&gt;. This is not a requirement for APIs that serve a client app built within the same organization.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nearly all externally facing REST APIs we know of trend or end up in these non-ideal states, as well as nearly all &lt;em&gt;internal&lt;/em&gt; REST APIs. The consequences of opaqueness and over-fetching are more severe in internal APIs since their velocity of change and level of usage is almost always higher.&lt;/p&gt;
+
+&lt;p&gt;Because of multiple round-trips and over-fetching, applications built in the REST style inevitably end up building &lt;em&gt;ad hoc&lt;/em&gt; endpoints that are superficially in the REST style. These actually couple the data to a particular view which explicitly violates one of REST&amp;#39;s major goals. Most REST systems of any complexity end up as a continuum of endpoints that span from “traditional” REST to &lt;em&gt;ad hoc&lt;/em&gt; endpoints.&lt;/p&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;ad-hoc-endpoints&quot;&gt;&lt;/a&gt;Ad Hoc Endpoints &lt;a class=&quot;hash-link&quot; href=&quot;#ad-hoc-endpoints&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Many applications have no formalized client-server contract. Product developers access server capabilities through &lt;em&gt;ad hoc&lt;/em&gt; endpoints and write custom code to fetch the data they need. Servers define procedures, and they return data. This approach has the virtue of simplicity, but can often become untenable as systems age.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;These systems typically define a custom endpoint per view. For systems with a wide surface area this can quickly grow into a maintenance nightmare of orphaned endpoints, inconsistent tooling, and massive server code duplication. Disciplined engineering organizations can mitigate these issues with great engineering practices, high quality abstractions, and custom tooling. However, given our experience we believe that custom endpoints tend to lead to entropic server codebases.&lt;/li&gt;
+&lt;li&gt;Much like REST, the payloads of custom endpoints grow monotonically (even with mitigation from versioning systems) as the server evolves. Deployed clients cannot break, and, with rapid release cycles and backwards compatibility guarantees, distributed applications will have large numbers of extant versions. Under these constraints it is difficult remove data from a custom endpoint.&lt;/li&gt;
+&lt;li&gt;Custom endpoints tend to – for a client developer – create a clunky, multi-language, multi-environment development process. No matter if the data has been accessed before in a different view, they are required to first change the custom endpoint, then deploy that code to a server accessible from a mobile device, and only then change the client to utilize that data. In GraphQL  – unless the data in the view is completely new to the entire system  – a product developer adds a field to a GraphQL query and the work on the client continues unabated.&lt;/li&gt;
+&lt;li&gt;Much like REST, most systems with custom endpoints do not have a formalized type system, which eliminates the possibility for the tools and guarantees that introspective type systems can provide. Some custom-endpoint-driven systems do use a strongly typed serialization scheme, such as Protocol Buffers, Thrift, or XML. Those do allow for direct parsing of responses into typed classes and eliminating boilerplate shuffling from JSON into handwritten classes. These systems are as not as expressive and flexible as GraphQL, and the other downsides of &lt;em&gt;ad hoc&lt;/em&gt; endpoints remain.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We believe that GraphQL represents a novel way of structuring the client-server contract. Servers publish a type system specific to their application, and GraphQL provides a unified language to query data within the constraints of that type system. That language allows product developers to express data requirements in a form natural to them: a declarative and hierarchal one.&lt;/p&gt;
+
+&lt;p&gt;This is a liberating platform for product developers. With GraphQL, no more contending with &lt;em&gt;ad hoc&lt;/em&gt; endpoints or object retrieval with multiple roundtrips to access server data; instead an elegant, hierarchical, declarative query dispatched to a single endpoint. No more  frequent jumps between client and server development environments to do experimentation or to change or create views of existing data; instead experiments are done and new views built within a native, client development environment exclusively. No more shuffling unstructured data from &lt;em&gt;ad hoc&lt;/em&gt; endpoints into business objects; instead a powerful, introspective type system that serves as a platform for tool building.&lt;/p&gt;
+
+&lt;p&gt;Product developers are free to focus on their client software and requirements while rarely leaving their development environment; they can more confidently support shipped clients as a system evolves; and they are using a protocol designed to operate well within the constraints of mobile applications. Product developers can query for exactly what they want, in the way they think about it, across their entire application&amp;#39;s data model. &lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;whats-next&quot;&gt;&lt;/a&gt;What&amp;#39;s next? &lt;a class=&quot;hash-link&quot; href=&quot;#whats-next&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Over the coming months, we will share more technical details about GraphQL, including additional language features, tools that support it, and how it is built and used at Facebook. These posts will culminate in a formal specification of GraphQL to guide implementors across various languages and platforms. We also plan on releasing a reference implementation in the summer, in order to provide a basis for custom deployments and a platform for experimentation. We&amp;#39;re incredibly excited to share this system and work with the open source community to improve it.&lt;/p&gt;
+</description>
+				<pubDate>2015-05-01T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html</guid>
+			</item>
+		
+			<item>
+				<title>React v0.13.2</title>
+				<description>&lt;p&gt;Yesterday the &lt;a href=&quot;/react/blog/2015/04/17/react-native-v0.4.html&quot;&gt;React Native team shipped v0.4&lt;/a&gt;. Those of us working on the web team just a few feet away couldn&amp;#39;t just be shown up like that so we&amp;#39;re shipping v0.13.2 today as well! This is a bug fix release to address a few things while we continue to work towards v0.14.&lt;/p&gt;
+
+&lt;p&gt;The release is now available for download:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-0.13.2.js&quot;&gt;https://fb.me/react-0.13.2.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-0.13.2.min.js&quot;&gt;https://fb.me/react-0.13.2.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React with Add-Ons&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.2.js&quot;&gt;https://fb.me/react-with-addons-0.13.2.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.2.min.js&quot;&gt;https://fb.me/react-with-addons-0.13.2.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In-Browser JSX transformer&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&quot;https://fb.me/JSXTransformer-0.13.2.js&quot;&gt;https://fb.me/JSXTransformer-0.13.2.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We&amp;#39;ve also published version &lt;code&gt;0.13.2&lt;/code&gt; of the &lt;code&gt;react&lt;/code&gt; and &lt;code&gt;react-tools&lt;/code&gt; packages on npm and the &lt;code&gt;react&lt;/code&gt; package on bower.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;changelog&quot;&gt;&lt;/a&gt;Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-core&quot;&gt;&lt;/a&gt;React Core &lt;a class=&quot;hash-link&quot; href=&quot;#react-core&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;new-features&quot;&gt;&lt;/a&gt;New Features &lt;a class=&quot;hash-link&quot; href=&quot;#new-features&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;code&gt;strokeDashoffset&lt;/code&gt;, &lt;code&gt;flexPositive&lt;/code&gt;, &lt;code&gt;flexNegative&lt;/code&gt; to the list of unitless CSS properties&lt;/li&gt;
+&lt;li&gt;Added support for more DOM properties:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scoped&lt;/code&gt; - for &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; elements&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;high&lt;/code&gt;, &lt;code&gt;low&lt;/code&gt;, &lt;code&gt;optimum&lt;/code&gt; - for &lt;code&gt;&amp;lt;meter&amp;gt;&lt;/code&gt; elements&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unselectable&lt;/code&gt; - IE-specific property to prevent user selection&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed a case where re-rendering after rendering null didn&amp;#39;t properly pass context&lt;/li&gt;
+&lt;li&gt;Fixed a case where re-rendering after rendering with &lt;code&gt;style={null}&lt;/code&gt; didn&amp;#39;t properly update &lt;code&gt;style&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Update &lt;code&gt;uglify&lt;/code&gt; dependency to prevent a bug in IE8&lt;/li&gt;
+&lt;li&gt;Improved warnings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-with-add-ons&quot;&gt;&lt;/a&gt;React with Add-Ons &lt;a class=&quot;hash-link&quot; href=&quot;#react-with-add-ons&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Immutabilty Helpers: Ensure it supports &lt;code&gt;hasOwnProperty&lt;/code&gt; as an object key&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-tools&quot;&gt;&lt;/a&gt;React Tools &lt;a class=&quot;hash-link&quot; href=&quot;#react-tools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Improve documentation for new options&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>2015-04-18T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/04/18/react-v0.13.2.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/04/18/react-v0.13.2.html</guid>
+			</item>
+		
+			<item>
+				<title>React Native v0.4</title>
+				<description>&lt;p&gt;It&amp;#39;s been three weeks since we open sourced React Native and there&amp;#39;s been some insane amount of activity already: over 12.5k stars, 1000 commits, 500 issues, 380 pull requests, and 100 contributors, plus &lt;a href=&quot;http://react.parts/native-ios&quot;&gt;35 plugins&lt;/a&gt; and &lt;a href=&quot;http://herman.asia/building-a-flashcard-app-with-react-native&quot;&gt;1 app in the app store&lt;/a&gt;! We were expecting some buzz around the project but this is way beyond anything we imagined. Thank you!&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;d especially like to thank community members Brent Vatne and James Ide who have both already contributed meaningfully to the project and have been extremely helpful on IRC and with issues and pull requests&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;changelog&quot;&gt;&lt;/a&gt;Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The main focus of the past few weeks has been to make React Native the best possible experience for people outside of Facebook. Here&amp;#39;s a high level summary of what&amp;#39;s happened since we open sourced:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Error messages and documentation&lt;/strong&gt;: We want React Native to be the absolute best developer experience for building mobile apps. We&amp;#39;ve added a lot of warnings, improved the documentation, and fixed many bugs. If you encounter anything, and I really mean anything, that is not expected or clear, please create an issue - we want to hear about it and fix it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NPM modules compatibility&lt;/strong&gt;: There are a lot of libraries on NPM that do not depend on node/browser internals that would be really useful in React Native, such as superagent, underscore, parse, and many others.  The packager is now a lot more faithful to node/browserify/webpack dependency resolution. If your favorite library doesn&amp;#39;t work out of the box, please open up an issue.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Infrastructure&lt;/strong&gt;: We are refactoring the internals of React Native to make it easier to plug in to existing iOS codebases, as well as improve performance by removing redundant views and shadow views, supporting multiple root views and manually registering classes to reduce startup time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Components&lt;/strong&gt;: The API for a lot of UI components and APIs, especially the ones we&amp;#39;re not using heavily inside of Facebook, has dramatically improved thanks to many of your pull requests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt;: We ported JavaScript tests, iOS Snapshot tests, and End to End tests to Travis CI. We have broken GitHub master a couple of times (whoops!) when syncing and we hope that with this growing suite of tests it&amp;#39;s going to become harder and harder to do so.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Patent Grant&lt;/strong&gt;: Many of you had concerns and questions around the PATENTS file. We pushed &lt;a href=&quot;https://code.facebook.com/posts/1639473982937255/updating-our-open-source-patent-grant/&quot;&gt;a new version of the grant&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Per commit history&lt;/strong&gt;: In order to synchronize from Facebook to GitHub, we used to do one giant commit every few days. We improved our tooling and now have per commit history that maintains author information (both internal and external from pull requests), and we retroactively applied this to historical diffs to provide proper attribution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;where-are-we-going&quot;&gt;&lt;/a&gt;Where are we going? &lt;a class=&quot;hash-link&quot; href=&quot;#where-are-we-going&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In addition to supporting pull requests, issues, and general improvements, we&amp;#39;re also working hard on our internal React Native integrations and on React Native for Android.&lt;/p&gt;
+</description>
+				<pubDate>2015-04-17T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/04/17/react-native-v0.4.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/04/17/react-native-v0.4.html</guid>
+			</item>
+		
+			<item>
+				<title>Community Round-up #26</title>
+				<description>&lt;p&gt;We open sourced React Native last week and the community reception blew away all our expectations! So many of you tried it, made cool stuff with it, raised many issues and even submitted pull requests to fix them! The entire team wants to say thank you!&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://twitter.com/hashtag/reactnative?src=hash&quot;&gt;#reactnative&lt;/a&gt; is like when you get a new expansion pack, and everybody is running around clueless about which NPC to talk to for the quests&lt;/p&gt;&amp;mdash; Ryan Florence (@ryanflorence) &lt;a href=&quot;https://twitter.com/ryanflorence/status/581810423554543616&quot;&gt;March 28, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;when-is-react-native-android-coming&quot;&gt;&lt;/a&gt;When is React Native Android coming? &lt;a class=&quot;hash-link&quot; href=&quot;#when-is-react-native-android-coming&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Give us 6 months&lt;/strong&gt;. At Facebook, we strive to only open-source projects that we are using in production. While the Android backend for React Native is starting to work (see video below at 37min), it hasn&amp;#39;t been shipped to any users yet. There&amp;#39;s a lot of work that goes into open-sourcing a project, and we want to do it right so that you have a great experience when using it.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/X6YbAKiLCLU?start=2220&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;ray-wenderlich---property-finder&quot;&gt;&lt;/a&gt;Ray Wenderlich - Property Finder &lt;a class=&quot;hash-link&quot; href=&quot;#ray-wenderlich---property-finder&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you are getting started with React Native, you should absolutely &lt;a href=&quot;http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript&quot;&gt;use this tutorial&lt;/a&gt; from Colin Eberhardt. It goes through all the steps to make a reasonably complete app.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;a href=&quot;http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript&quot;&gt;&lt;img src=&quot;/react/img/blog/property-finder.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Colin also &lt;a href=&quot;http://blog.scottlogic.com/2015/03/26/react-native-retrospective.html&quot;&gt;blogged about his experience using React Native&lt;/a&gt; for a few weeks and gives his thoughts on why you would or wouldn&amp;#39;t use it.&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;the-changelog&quot;&gt;&lt;/a&gt;The Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#the-changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Spencer Ahrens and I had the great pleasure to talk about React Native on &lt;a href=&quot;https://thechangelog.com/149/&quot;&gt;The Changelog&lt;/a&gt; podcast. It was really fun to chat for an hour, I hope that you&amp;#39;ll enjoy listening to it. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;audio src=&quot;http://fdlyr.co/d/changelog/cdn.5by5.tv/audio/broadcasts/changelog/2015/changelog-149.mp3&quot; controls=&quot;controls&quot; style=&quot;width: 100%&quot;&gt;&lt;/audio&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;hacker-news&quot;&gt;&lt;/a&gt;Hacker News &lt;a class=&quot;hash-link&quot; href=&quot;#hacker-news&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Less than 24 hours after React Native was open sourced, Simarpreet Singh built an &lt;a href=&quot;https://github.com/iSimar/HackerNews-React-Native&quot;&gt;Hacker News reader app from scratch&lt;/a&gt;. It&amp;#39;s unbelievable how fast he was able to pull it off!&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;a href=&quot;https://github.com/iSimar/HackerNews-React-Native&quot;&gt;&lt;img src=&quot;/react/img/blog/hacker-news-react-native.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;parse--react&quot;&gt;&lt;/a&gt;Parse + React &lt;a class=&quot;hash-link&quot; href=&quot;#parse--react&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There&amp;#39;s a huge ecosystem of JavaScript modules on npm and React Native was designed to work well with the ones that don&amp;#39;t have DOM dependencies. Parse is a great example; you can &lt;code&gt;npm install parse&lt;/code&gt; on your React Native project and it&amp;#39;ll work as is. :) We still have &lt;a href=&quot;https://github.com/facebook/react-native/issues/406&quot;&gt;a&lt;/a&gt; &lt;a href=&quot;https://github.com/facebook/react-native/issues/370&quot;&gt;few&lt;/a&gt; &lt;a href=&quot;https://github.com/facebook/react-native/issues/316&quot;&gt;issues&lt;/a&gt; to solve; please create an issue if your favorite library doesn&amp;#39;t work out of the box.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;a href=&quot;http://blog.parse.com/2015/03/25/parse-and-react-shared-chemistry/&quot;&gt;&lt;img src=&quot;/react/img/blog/parse-react.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;tcomb-form-native&quot;&gt;&lt;/a&gt;tcomb-form-native &lt;a class=&quot;hash-link&quot; href=&quot;#tcomb-form-native&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Giulio Canti is the author of the &lt;a href=&quot;https://github.com/gcanti/tcomb-form&quot;&gt;tcomb-form library&lt;/a&gt; for React. He already &lt;a href=&quot;https://github.com/gcanti/tcomb-form-native&quot;&gt;ported it to React Native&lt;/a&gt; and it looks great!&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;a href=&quot;https://github.com/gcanti/tcomb-form-native&quot;&gt;&lt;img src=&quot;/react/img/blog/tcomb-react-native.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;facebook-login-with-react-native&quot;&gt;&lt;/a&gt;Facebook Login with React Native &lt;a class=&quot;hash-link&quot; href=&quot;#facebook-login-with-react-native&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;One of the reason we built React Native is to be able to use all the libraries in the native ecosystem. Brent Vatne leads the way and explains &lt;a href=&quot;http://brentvatne.ca/facebook-login-with-react-native/&quot;&gt;how to use Facebook Login with React Native&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;modus-create&quot;&gt;&lt;/a&gt;Modus Create &lt;a class=&quot;hash-link&quot; href=&quot;#modus-create&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Jay Garcia spent a lot of time during the beta working on a NES music player with React Native. He wrote a blog post to share his experience and explains some code snippets.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;a href=&quot;http://moduscreate.com/react-native-has-landed/&quot;&gt;&lt;img src=&quot;/react/img/blog/modus-create.gif&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-native-with-babel-and-webpack&quot;&gt;&lt;/a&gt;React Native with Babel and Webpack &lt;a class=&quot;hash-link&quot; href=&quot;#react-native-with-babel-and-webpack&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;React Native ships with a custom packager and custom ES6 transforms instead of using what the open source community settled on such as Webpack and Babel. The main reason for this is performance – we couldn&amp;#39;t get those tools to have sub-second reload time on a large codebase.&lt;/p&gt;
+
+&lt;p&gt;Roman Liutikov found a way to &lt;a href=&quot;https://github.com/roman01la/react-native-babel&quot;&gt;use Webpack and Babel to run on React Native&lt;/a&gt;! In the future, we want to work with those projects to provide cleaner extension mechanisms.&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;a-dynamic-crazy-native-mobile-futurepowered-by-javascript&quot;&gt;&lt;/a&gt;A Dynamic, Crazy, Native Mobile Future—Powered by JavaScript &lt;a class=&quot;hash-link&quot; href=&quot;#a-dynamic-crazy-native-mobile-futurepowered-by-javascript&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Clay Allsopp wrote a post about &lt;a href=&quot;https://medium.com/@clayallsopp/a-dynamic-crazy-native-mobile-future-powered-by-javascript-70f2d56b1987&quot;&gt;all the crazy things you could do with a JavaScript engine that renders native views&lt;/a&gt;. What about native embeds, seamless native browser, native search engine or even app generation...&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;random-tweet&quot;&gt;&lt;/a&gt;Random Tweet &lt;a class=&quot;hash-link&quot; href=&quot;#random-tweet&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We&amp;#39;ve spent a lot of efforts getting the onboarding as easy as possible and we&amp;#39;re really happy that people noticed. We still have a lot of work to do on documentation, stay tuned!&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p&gt;Wow. Getting started with React Native might have been the smoothest experience I’ve ever had with a new developer product.&lt;/p&gt;&amp;mdash; Andreas Eldh (@eldh) &lt;a href=&quot;https://twitter.com/eldh/status/581186172094980096&quot;&gt;March 26, 2015&lt;/a&gt;&lt;/blockquote&gt;
+</description>
+				<pubDate>2015-03-30T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/03/30/community-roundup-26.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/03/30/community-roundup-26.html</guid>
+			</item>
+		
+			<item>
+				<title>Introducing React Native</title>
+				<description>&lt;p&gt;In January at React.js Conf, we announced React Native, a new framework for building native apps using React. We&amp;#39;re happy to announce that we&amp;#39;re open-sourcing React Native and you can start building your apps with it today.&lt;/p&gt;
+
+&lt;p&gt;For more details, see &lt;a href=&quot;https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/&quot;&gt;Tom Occhino&amp;#39;s post on the Facebook Engineering blog&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;What we really want is the user experience of the native mobile platforms, combined with the developer experience we have when building with React on the web.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;With a bit of work, we can make it so the exact same React that&amp;#39;s on GitHub can power truly native mobile applications. The only difference in the mobile environment is that instead of running React in the browser and rendering to divs and spans, we run it an embedded instance of JavaScriptCore inside our apps and render to higher-level platform-specific components.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;It&amp;#39;s worth noting that we&amp;#39;re not chasing “write once, run anywhere.” Different platforms have different looks, feels, and capabilities, and as such, we should still be developing discrete apps for each platform, but the same set of engineers should be able to build applications for whatever platform they choose, without needing to learn a fundamentally different set of technologies for each. We call this approach “learn once, write anywhere.”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To learn more, visit the &lt;a href=&quot;https://facebook.github.io/react-native/&quot;&gt;React Native website&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>2015-03-26T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/03/26/introducing-react-native.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/03/26/introducing-react-native.html</guid>
+			</item>
+		
+			<item>
+				<title>Building The Facebook News Feed With Relay</title>
+				<description>&lt;p&gt;At React.js Conf in January we gave a preview of Relay, a new framework for building data-driven applications in React. In this post, we&amp;#39;ll describe the process of creating a Relay application. This post assumes some familiarity with the concepts of Relay and GraphQL, so if you haven&amp;#39;t already we recommend reading &lt;a href=&quot;/react/blog/2015/02/20/introducing-relay-and-graphql.html&quot;&gt;our introductory blog post&lt;/a&gt; or watching &lt;a href=&quot;https://www.youtube-nocookie.com/watch?v=9sc8Pyc51uU&quot;&gt;the conference talk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We&amp;#39;re working hard to prepare GraphQL and Relay for public release. In the meantime, we&amp;#39;ll continue to provide information about what you can expect.&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;the-relay-architecture&quot;&gt;&lt;/a&gt;The Relay Architecture &lt;a class=&quot;hash-link&quot; href=&quot;#the-relay-architecture&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The diagram below shows the main parts of the Relay architecture on the client and the server:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/react/img/blog/relay-components/relay-architecture.png&quot; alt=&quot;Relay Architecture&quot; width=&quot;650&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The main pieces are as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Relay Components: React components annotated with declarative data descriptions.&lt;/li&gt;
+&lt;li&gt;Actions: Descriptions of how data should change in response to user actions.&lt;/li&gt;
+&lt;li&gt;Relay Store: A client-side data store that is fully managed by the framework.&lt;/li&gt;
+&lt;li&gt;Server: An HTTP server with GraphQL endpoints (one for reads, one for writes) that respond to GraphQL queries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This post will focus on &lt;strong&gt;Relay components&lt;/strong&gt; that describe encapsulated units of UI and their data dependencies. These components form the majority of a Relay application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;a-relay-application&quot;&gt;&lt;/a&gt;A Relay Application &lt;a class=&quot;hash-link&quot; href=&quot;#a-relay-application&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To see how components work and can be composed, let&amp;#39;s implement a basic version of the Facebook News Feed in Relay. Our application will have two components: a &lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt; that renders a list of &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; items. We&amp;#39;ll introduce the plain React version of each component first and then convert it to a Relay component. The goal is something like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/react/img/blog/relay-components/sample-newsfeed.png&quot; alt=&quot;Sample News Feed&quot; width=&quot;360&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;the-ltstorygt-begins&quot;&gt;&lt;/a&gt;The &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; Begins &lt;a class=&quot;hash-link&quot; href=&quot;#the-ltstorygt-begins&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The first step is a React &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; component that accepts a &lt;code&gt;story&lt;/code&gt; prop with the story&amp;#39;s text and author information. Note that all examples uses ES6 syntax and elide presentation details to focus on the pattern of data access.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Story.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Image&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;profile_picture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/Text&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/Text&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/View&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;whats-the-ltstorygt&quot;&gt;&lt;/a&gt;What&amp;#39;s the &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt;? &lt;a class=&quot;hash-link&quot; href=&quot;#whats-the-ltstorygt&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Relay automates the process of fetching data for components by wrapping existing React components in Relay containers (themselves React components):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Story.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Relay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createContainer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;queries&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* TODO */&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Before adding the GraphQL query, let&amp;#39;s look at the component hierarchy this creates:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/react/img/blog/relay-components/relay-containers.png&quot; width=&quot;397&quot; alt=&quot;React Container Data Flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Most props will be passed through from the container to the original component. However, Relay will return the query results for a prop whenever a query is defined. In this case we&amp;#39;ll add a GraphQL query for &lt;code&gt;story&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Story.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Relay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createContainer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;queries&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;profile_picture&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;uri&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Queries use ES6 template literals tagged with the &lt;code&gt;graphql&lt;/code&gt; function. Similar to how JSX transpiles to plain JavaScript objects and function calls, these template literals transpile to plain objects that describe queries. Note that the query&amp;#39;s structure closely matches the object structure that we expected in &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt;&amp;#39;s render function.&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;ltstorygts-on-demand&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt;s on Demand &lt;a class=&quot;hash-link&quot; href=&quot;#ltstorygts-on-demand&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We can render a Relay component by providing Relay with the component (&lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt;) and the ID of the data (a story ID). Given this information, Relay will first fetch the results of the query and then &lt;code&gt;render()&lt;/code&gt; the component. The value of &lt;code&gt;props.story&lt;/code&gt; will be a plain JavaScript object such as the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Greg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;profile_picture&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://…&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;The first Relay blog post is up…&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Relay guarantees that all data required to render a component will be available before it is rendered. This means that &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; does not need to handle a loading state; the &lt;code&gt;story&lt;/code&gt; is &lt;em&gt;guaranteed&lt;/em&gt; to be available before &lt;code&gt;render()&lt;/code&gt; is called. We have found that this invariant simplifies our application code &lt;em&gt;and&lt;/em&gt; improves the user experience. Of course, Relay also has options to delay the fetching of some parts of our queries.&lt;/p&gt;
+
+&lt;p&gt;The diagram below shows how Relay containers make data available to our React components:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/react/img/blog/relay-components/relay-containers-data-flow.png&quot; width=&quot;650&quot; alt=&quot;Relay Container Data Flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;ltnewsfeedgt-worthy&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt; Worthy &lt;a class=&quot;hash-link&quot; href=&quot;#ltnewsfeedgt-worthy&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now that the &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; is over we can continue with the &lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt; component. Again, we&amp;#39;ll start with a React version:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// NewsFeed.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NewsFeed&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;viewer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// `viewer` is the active user&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadMore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Load&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;More&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/Button&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/View&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;loadMore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// TODO: fetch more stories&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NewsFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;all-the-news-fit-to-be-relayed&quot;&gt;&lt;/a&gt;All the News Fit to be Relayed &lt;a class=&quot;hash-link&quot; href=&quot;#all-the-news-fit-to-be-relayed&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt; has two new requirements: it composes &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; and requests more data at runtime.&lt;/p&gt;
+
+&lt;p&gt;Just as React views can be nested, Relay queries can compose queries from child components. Composition in GraphQL uses ES6 template literal substitution: &lt;code&gt;${Component.getQuery(&amp;#39;prop&amp;#39;)}&lt;/code&gt;. Pagination can be accomplished with a query parameter, specified with &lt;code&gt;&amp;lt;param&amp;gt;&lt;/code&gt; (as in &lt;code&gt;stories(first: &amp;lt;count&amp;gt;)&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// NewsFeed.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NewsFeed&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Relay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createContainer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NewsFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;queryParams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;                             &lt;span class=&quot;cm&quot;&gt;/* default to 3 stories */&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;queries&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;viewer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;Viewer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;stories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;        &lt;span class=&quot;cm&quot;&gt;/* fetch viewer&amp;#39;s stories */&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;edges&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;                        &lt;span class=&quot;cm&quot;&gt;/* traverse the graph */&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Story&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;story&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* compose child query */&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Whenever &lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt; is rendered, Relay will recursively expand all the composed queries and fetch them in a single trip to the server. In this case, the &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;author&lt;/code&gt; data will be fetched for each of the 3 story nodes.&lt;/p&gt;
+
+&lt;p&gt;Query parameters are available to components as &lt;code&gt;props.queryParams&lt;/code&gt; and can be modified with &lt;code&gt;props.setQueryParams(nextParams)&lt;/code&gt;. We can use these to implement pagination:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// NewsFeed.react.js&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NewsFeed&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;loadMore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// read current params&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;queryParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// update params&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setQueryParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now when &lt;code&gt;loadMore()&lt;/code&gt; is called, Relay will send a GraphQL request for the additional five stories. When these stories are fetched, the component will re-render with the new stories available in &lt;code&gt;props.viewer.stories&lt;/code&gt; and the updated count reflected in &lt;code&gt;props.queryParams.count&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;in-conclusion&quot;&gt;&lt;/a&gt;In Conclusion &lt;a class=&quot;hash-link&quot; href=&quot;#in-conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;These two components form a solid core for our application. With the use of Relay containers and GraphQL queries, we&amp;#39;ve enabled the following benefits:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Automatic and efficient pre-fetching of data for an entire view hierarchy in a single network request.&lt;/li&gt;
+&lt;li&gt;Trivial pagination with automatic optimizations to fetch only the additional items.&lt;/li&gt;
+&lt;li&gt;View composition and reusability, so that &lt;code&gt;&amp;lt;Story&amp;gt;&lt;/code&gt; can be used on its own or within &lt;code&gt;&amp;lt;NewsFeed&amp;gt;&lt;/code&gt;, without any changes to either component.&lt;/li&gt;
+&lt;li&gt;Automatic subscriptions, so that components will re-render if their data changes. Unaffected components will not re-render unnecessarily.&lt;/li&gt;
+&lt;li&gt;Exactly &lt;em&gt;zero&lt;/em&gt; lines of imperative data fetching logic. Relay takes full advantage of React&amp;#39;s declarative component model.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But Relay has many more tricks up its sleeve. For example, it&amp;#39;s built from the start to handle reads and writes, allowing for features like optimistic client updates with transactional rollback. Relay can also defer fetching select parts of queries, and it uses a local data store to avoid fetching the same data twice. These are all powerful features that we hope to explore in future posts.&lt;/p&gt;
+</description>
+				<pubDate>2015-03-19T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/03/19/building-the-facebook-news-feed-with-relay.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/03/19/building-the-facebook-news-feed-with-relay.html</guid>
+			</item>
+		
+			<item>
+				<title>React v0.13.1</title>
+				<description>&lt;p&gt;It&amp;#39;s been less than a week since we shipped v0.13.0 but it&amp;#39;s time to do another quick release. We just released v0.13.1 which contains bugfixes for a number of small issues.&lt;/p&gt;
+
+&lt;p&gt;Thanks all of you who have been upgrading your applications and taking the time to report issues. And a huge thank you to those of you who submitted pull requests for the issues you found! 2 of the 6 fixes that went out today came from people who aren&amp;#39;t on the core team!&lt;/p&gt;
+
+&lt;p&gt;The release is now available for download:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-0.13.1.js&quot;&gt;https://fb.me/react-0.13.1.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-0.13.1.min.js&quot;&gt;https://fb.me/react-0.13.1.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React with Add-Ons&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.1.js&quot;&gt;https://fb.me/react-with-addons-0.13.1.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.1.min.js&quot;&gt;https://fb.me/react-with-addons-0.13.1.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In-Browser JSX transformer&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&quot;https://fb.me/JSXTransformer-0.13.1.js&quot;&gt;https://fb.me/JSXTransformer-0.13.1.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We&amp;#39;ve also published version &lt;code&gt;0.13.1&lt;/code&gt; of the &lt;code&gt;react&lt;/code&gt; and &lt;code&gt;react-tools&lt;/code&gt; packages on npm and the &lt;code&gt;react&lt;/code&gt; package on bower.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;changelog&quot;&gt;&lt;/a&gt;Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-core&quot;&gt;&lt;/a&gt;React Core &lt;a class=&quot;hash-link&quot; href=&quot;#react-core&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Don&amp;#39;t throw when rendering empty &lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; elements&lt;/li&gt;
+&lt;li&gt;Ensure updating &lt;code&gt;style&lt;/code&gt; works when transitioning from &lt;code&gt;null&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-with-add-ons&quot;&gt;&lt;/a&gt;React with Add-Ons &lt;a class=&quot;hash-link&quot; href=&quot;#react-with-add-ons&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;TestUtils: Don&amp;#39;t warn about &lt;code&gt;getDOMNode&lt;/code&gt; for ES6 classes&lt;/li&gt;
+&lt;li&gt;TestUtils: Ensure wrapped full page components (&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;) are treated as DOM components&lt;/li&gt;
+&lt;li&gt;Perf: Stop double-counting DOM components&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-tools&quot;&gt;&lt;/a&gt;React Tools &lt;a class=&quot;hash-link&quot; href=&quot;#react-tools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;bug-fixes&quot;&gt;&lt;/a&gt;Bug Fixes &lt;a class=&quot;hash-link&quot; href=&quot;#bug-fixes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix option parsing for &lt;code&gt;--non-strict-es6module&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>2015-03-16T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/03/16/react-v0.13.1.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/03/16/react-v0.13.1.html</guid>
+			</item>
+		
+			<item>
+				<title>React v0.13</title>
+				<description>&lt;p&gt;Today, we&amp;#39;re happy to release React v0.13!&lt;/p&gt;
+
+&lt;p&gt;The most notable new feature is &lt;a href=&quot;/react/blog/2015/01/27/react-v0.13.0-beta-1.html&quot;&gt;support for ES6 classes&lt;/a&gt;, which allows developers to have more flexibility when writing components. Our eventual goal is for ES6 classes to replace &lt;code&gt;React.createClass&lt;/code&gt; completely, but until we have a replacement for current mixin use cases and support for class property initializers in the language, we don&amp;#39;t plan to deprecate &lt;code&gt;React.createClass&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At EmberConf and ng-conf last week, we were excited to see that Ember and Angular have been working on speed improvements and now both have performance comparable to React. We&amp;#39;ve always thought that performance isn&amp;#39;t the most important reason to choose React, but we&amp;#39;re still planning more optimizations to &lt;strong&gt;make React even faster&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our planned optimizations require that ReactElement objects are immutable, which has always been a best practice when writing idiomatic React code. In this release, we&amp;#39;ve added runtime warnings that fire when props are changed or added between the time an element is created and when it&amp;#39;s rendered. When migrating your code, you may want to use new &lt;code&gt;React.cloneElement&lt;/code&gt; API (which is similar to &lt;code&gt;React.addons.cloneWithProps&lt;/code&gt; but preserves &lt;code&gt;key&lt;/code&gt; and &lt;code&gt;ref&lt;/code&gt; and does not merge &lt;code&gt;style&lt;/code&gt; or &lt;code&gt;className&lt;/code&gt; automatically). For more information about our planned optimizations, see GitHub issues
+&lt;a href=&quot;https://github.com/facebook/react/issues/3226&quot;&gt;#3226&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/facebook/react/issues/3227&quot;&gt;#3227&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/facebook/react/issues/3228&quot;&gt;#3228&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The release is now available for download:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-0.13.0.js&quot;&gt;https://fb.me/react-0.13.0.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-0.13.0.min.js&quot;&gt;https://fb.me/react-0.13.0.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React with Add-Ons&lt;/strong&gt;&lt;br&gt;
+Dev build with warnings: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.0.js&quot;&gt;https://fb.me/react-with-addons-0.13.0.js&lt;/a&gt;&lt;br&gt;
+Minified build for production: &lt;a href=&quot;https://fb.me/react-with-addons-0.13.0.min.js&quot;&gt;https://fb.me/react-with-addons-0.13.0.min.js&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In-Browser JSX transformer&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&quot;https://fb.me/JSXTransformer-0.13.0.js&quot;&gt;https://fb.me/JSXTransformer-0.13.0.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We&amp;#39;ve also published version &lt;code&gt;0.13.0&lt;/code&gt; of the &lt;code&gt;react&lt;/code&gt; and &lt;code&gt;react-tools&lt;/code&gt; packages on npm and the &lt;code&gt;react&lt;/code&gt; package on bower.&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;&lt;a class=&quot;anchor&quot; name=&quot;changelog&quot;&gt;&lt;/a&gt;Changelog &lt;a class=&quot;hash-link&quot; href=&quot;#changelog&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-core&quot;&gt;&lt;/a&gt;React Core &lt;a class=&quot;hash-link&quot; href=&quot;#react-core&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;breaking-changes&quot;&gt;&lt;/a&gt;Breaking Changes &lt;a class=&quot;hash-link&quot; href=&quot;#breaking-changes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Deprecated patterns that warned in 0.12 no longer work: most prominently, calling component classes without using JSX or React.createElement and using non-component functions with JSX or createElement&lt;/li&gt;
+&lt;li&gt;Mutating &lt;code&gt;props&lt;/code&gt; after an element is created is deprecated and will cause warnings in development mode; future versions of React will incorporate performance optimizations assuming that props aren&amp;#39;t mutated&lt;/li&gt;
+&lt;li&gt;Static methods (defined in &lt;code&gt;statics&lt;/code&gt;) are no longer autobound to the component class&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ref&lt;/code&gt; resolution order has changed slightly such that a ref to a component is available immediately after its &lt;code&gt;componentDidMount&lt;/code&gt; method is called; this change should be observable only if your component calls a parent component&amp;#39;s callback within your &lt;code&gt;componentDidMount&lt;/code&gt;, which is an anti-pattern and should be avoided regardless&lt;/li&gt;
+&lt;li&gt;Calls to &lt;code&gt;setState&lt;/code&gt; in life-cycle methods are now always batched and therefore asynchronous. Previously the first call on the first mount was synchronous.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setState&lt;/code&gt; and &lt;code&gt;forceUpdate&lt;/code&gt; on an unmounted component now warns instead of throwing. That avoids a possible race condition with Promises.&lt;/li&gt;
+&lt;li&gt;Access to most internal properties has been completely removed, including &lt;code&gt;this._pendingState&lt;/code&gt; and &lt;code&gt;this._rootNodeID&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;new-features&quot;&gt;&lt;/a&gt;New Features &lt;a class=&quot;hash-link&quot; href=&quot;#new-features&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support for using ES6 classes to build React components; see the &lt;a href=&quot;/react/blog/2015/01/27/react-v0.13.0-beta-1.html&quot;&gt;v0.13.0 beta 1 notes&lt;/a&gt; for details.&lt;/li&gt;
+&lt;li&gt;Added new top-level API &lt;code&gt;React.findDOMNode(component)&lt;/code&gt;, which should be used in place of &lt;code&gt;component.getDOMNode()&lt;/code&gt;. The base class for ES6-based components will not have &lt;code&gt;getDOMNode&lt;/code&gt;. This change will enable some more patterns moving forward.&lt;/li&gt;
+&lt;li&gt;Added a new top-level API &lt;code&gt;React.cloneElement(el, props)&lt;/code&gt; for making copies of React elements – see the &lt;a href=&quot;/react/blog/2015/03/03/react-v0.13-rc2.html#react.cloneelement&quot;&gt;v0.13 RC2 notes&lt;/a&gt; for more details.&lt;/li&gt;
+&lt;li&gt;New &lt;code&gt;ref&lt;/code&gt; style, allowing a callback to be used in place of a name: &lt;code&gt;&amp;lt;Photo ref={(c) =&amp;gt; this._photo = c} /&amp;gt;&lt;/code&gt; allows you to reference the component with &lt;code&gt;this._photo&lt;/code&gt; (as opposed to &lt;code&gt;ref=&amp;quot;photo&amp;quot;&lt;/code&gt; which gives &lt;code&gt;this.refs.photo&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;this.setState()&lt;/code&gt; can now take a function as the first argument for transactional state updates, such as &lt;code&gt;this.setState((state, props) =&amp;gt; ({count: state.count + 1}));&lt;/code&gt; – this means that you no longer need to use &lt;code&gt;this._pendingState&lt;/code&gt;, which is now gone.&lt;/li&gt;
+&lt;li&gt;Support for iterators and immutable-js sequences as children.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;deprecations&quot;&gt;&lt;/a&gt;Deprecations &lt;a class=&quot;hash-link&quot; href=&quot;#deprecations&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ComponentClass.type&lt;/code&gt; is deprecated. Just use &lt;code&gt;ComponentClass&lt;/code&gt; (usually as &lt;code&gt;element.type === ComponentClass&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Some methods that are available on &lt;code&gt;createClass&lt;/code&gt;-based components are removed or deprecated from ES6 classes (&lt;code&gt;getDOMNode&lt;/code&gt;, &lt;code&gt;replaceState&lt;/code&gt;, &lt;code&gt;isMounted&lt;/code&gt;, &lt;code&gt;setProps&lt;/code&gt;, &lt;code&gt;replaceProps&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-with-add-ons&quot;&gt;&lt;/a&gt;React with Add-Ons &lt;a class=&quot;hash-link&quot; href=&quot;#react-with-add-ons&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;new-features&quot;&gt;&lt;/a&gt;New Features &lt;a class=&quot;hash-link&quot; href=&quot;#new-features&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/react/docs/create-fragment.html&quot;&gt;&lt;code&gt;React.addons.createFragment&lt;/code&gt; was added&lt;/a&gt; for adding keys to entire sets of children.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;deprecations&quot;&gt;&lt;/a&gt;Deprecations &lt;a class=&quot;hash-link&quot; href=&quot;#deprecations&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;React.addons.classSet&lt;/code&gt; is now deprecated. This functionality can be replaced with several freely available modules. &lt;a href=&quot;https://www.npmjs.com/package/classnames&quot;&gt;classnames&lt;/a&gt; is one such module.&lt;/li&gt;
+&lt;li&gt;Calls to &lt;code&gt;React.addons.cloneWithProps&lt;/code&gt; can be migrated to use &lt;code&gt;React.cloneElement&lt;/code&gt; instead – make sure to merge &lt;code&gt;style&lt;/code&gt; and &lt;code&gt;className&lt;/code&gt; manually if desired.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;react-tools&quot;&gt;&lt;/a&gt;React Tools &lt;a class=&quot;hash-link&quot; href=&quot;#react-tools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;breaking-changes&quot;&gt;&lt;/a&gt;Breaking Changes &lt;a class=&quot;hash-link&quot; href=&quot;#breaking-changes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When transforming ES6 syntax, &lt;code&gt;class&lt;/code&gt; methods are no longer enumerable by default, which requires &lt;code&gt;Object.defineProperty&lt;/code&gt;; if you support browsers such as IE8, you can pass &lt;code&gt;--target es3&lt;/code&gt; to mirror the old behavior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;new-features&quot;&gt;&lt;/a&gt;New Features &lt;a class=&quot;hash-link&quot; href=&quot;#new-features&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--target&lt;/code&gt; option is available on the jsx command, allowing users to specify and ECMAScript version to target.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;es5&lt;/code&gt; is the default.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;es3&lt;/code&gt; restores the previous default behavior. An additional transform is added here to ensure the use of reserved words as properties is safe (eg &lt;code&gt;this.static&lt;/code&gt; will become &lt;code&gt;this[&amp;#39;static&amp;#39;]&lt;/code&gt; for IE8 compatibility).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The transform for the call spread operator has also been enabled.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a class=&quot;anchor&quot; name=&quot;jsx&quot;&gt;&lt;/a&gt;JSX &lt;a class=&quot;hash-link&quot; href=&quot;#jsx&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;a class=&quot;anchor&quot; name=&quot;breaking-changes&quot;&gt;&lt;/a&gt;Breaking Changes &lt;a class=&quot;hash-link&quot; href=&quot;#breaking-changes&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A change was made to how some JSX was parsed, specifically around the use of &lt;code&gt;&amp;gt;&lt;/code&gt; or &lt;code&gt;}&lt;/code&gt; when inside an element. Previously it would be treated as a string but now it will be treated as a parse error. The &lt;a href=&quot;https://www.npmjs.com/package/jsx_orphaned_brackets_transformer&quot;&gt;&lt;code&gt;jsx_orphaned_brackets_transformer&lt;/code&gt;&lt;/a&gt; package on npm can be used to find and fix potential issues in your JSX code.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>2015-03-10T00:00:00-07:00</pubDate>
+				<link>https://facebook.github.io/react/blog/2015/03/10/react-v0.13.html</link>
+				<guid isPermaLink="true">https://facebook.github.io/react/blog/2015/03/10/react-v0.13.html</guid>
+			</item>
+		
+	</channel>
+</rss>
