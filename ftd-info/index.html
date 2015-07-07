@@ -1,12 +1,20 @@
 <html>
   <head>
     <title>FTD INFO</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="xmlToJSON.js"></script>
   </head>
   <body>
     <script type="text/javascript">
-      result = xmlToJSON.parseString('https://tcgbusfs.blob.core.windows.net/blobfs/GetFTDDamData.xml');
-      console.log(result);
+      //result = xmlToJSON.parseString('<xml><a>It Works!</a></xml>');
+      //console.log(result);
+      $.ajax({
+        url: "https://tcgbusfs.blob.core.windows.net/blobfs/GetFTDDamData.xml",
+        context: document.body,
+        success: function(response){
+          console.log(response);
+        }
+      });
     </script>
   </body>
 </html>
