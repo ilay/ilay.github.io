@@ -11,6 +11,7 @@
       $.ajax({
         url: "https://tcgbusfs.blob.core.windows.net/blobfs/GetFTDDamData.xml",
         context: document.body,
+        crossDomain: true,
         success: function(response){
           console.log(response);
         }
